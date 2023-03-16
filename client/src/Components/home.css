@@ -1,0 +1,17 @@
+body { 
+    background: #16141d;
+    color: rgb(255, 255, 255);
+    
+  
+}
+
+.card {
+    margin: auto;
+    line-height: 20px;
+    width: 50%;
+    background: #201d29;
+    color: rgb(167, 163, 189);
+    padding: 20px;
+    margin-top: 50px;
+    
+}
