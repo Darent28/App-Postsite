@@ -23,10 +23,10 @@ export const HeaderPs = () => {
             <form class="d-flex">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <Link class="nav-link" aria-current="page" to="./sign-in">SingIn</Link>
+                <Link class="nav-link" aria-current="page" to="./sign_in">SingIn</Link>
               </li>
               <li class="nav-item">
-                <Link class="nav-link" aria-current="page" to="./log-in">LogIn</Link>
+                <Link class="nav-link" aria-current="page" to="./log_in">LogIn</Link>
               </li>
             </ul>  
             </form>

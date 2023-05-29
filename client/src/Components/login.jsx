@@ -39,7 +39,7 @@ export const LogIn = ({ user, setUser }) => {
         .then ((res) => {
             if (res.user) {
                 console.log('Login successful!'); // do something here to handle successful login
-                navigate('/')
+                navigate('/', { state: { user: res.user } });
                 //reload state
                 setUser({
                     name: '',
@@ -81,7 +81,7 @@ export const LogIn = ({ user, setUser }) => {
                 </div>
                 <button type="submit" className="btn btn-secondary" value="Submit">Log in</button>
             </form>
-            <p className="account">New to PostSite? <a className="forgot" href="./sign-in">Create account</a>.</p>
+            <p className="account">New to PostSite? <a className="forgot" href="./sign_in">Create account</a>.</p>
         </div> 
     )
 }

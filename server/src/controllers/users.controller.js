@@ -1,6 +1,7 @@
 import { pool } from '../db.js'
 
 
+
 export const getUser = async (req, res) => { 
     const [rows] = await pool.query('SELEXT * FROM tb_user') 
     res.json(rows)
@@ -22,12 +23,9 @@ export const postUserlogin = async (req, res) => {
     if(password != user.password){
         return res.status(401).json('Usuario o contraseña incorrectos')
     }else {
-         res.status(200).json({ user: { name: user.name, email: user.email } });
-    }
 
-    
-   
-    
+        res.status(200).json({ user: { name: user.name, email: user.email } });
+    }  
 }
 
 export const createUser = async (req, res) => {
@@ -48,7 +46,13 @@ export const createUser = async (req, res) => {
 
 
 
-export const getCurrentUser = (req, res) => {
-    
+export const getCurrentUser = (req, res, next) => {
+     // check if user is logged in
+    if (req.session.user){
+        // user is authenticated, return protected data
+        req.currentUser = req.session.user;
 
+    }  
+
+    next();
 }

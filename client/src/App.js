@@ -22,8 +22,8 @@ function App() {
         <HeaderPs />
           <Routes>
               <Route path='/' element={  <Home />  } />
-              <Route path='/log-in' element={ <LogIn user={user} setUser={setUser} />  } />
-              <Route path='/sign-in' element={ <SignIn user={user} setUser={setUser} />  }/>         
+              <Route path='/log_in' element={ <LogIn user={user} setUser={setUser} />  } />
+              <Route path='/sign_in' element={ <SignIn user={user} setUser={setUser} />  }/>         
           </Routes>
     </div>
   );
