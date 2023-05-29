@@ -1,4 +1,5 @@
 import { pool } from '../db.js'
+import jwt from 'jsonwebtoken'
 
 
 
@@ -23,9 +24,18 @@ export const postUserlogin = async (req, res) => {
     if(password != user.password){
         return res.status(401).json('Usuario o contraseña incorrectos')
     }else {
+       
+        const token = jwt.sign({ user }, 'my_secret_key')
+        res.status(200).json({ token });
 
-        res.status(200).json({ user: { name: user.name, email: user.email } });
     }  
+}
+
+
+export const protectedLogin = async (req, res) => {
+       res.json({
+            text: 'protected'
+       }) 
 }
 
 export const createUser = async (req, res) => {
@@ -45,14 +55,12 @@ export const createUser = async (req, res) => {
 }
 
 
-
-export const getCurrentUser = (req, res, next) => {
-     // check if user is logged in
-    if (req.session.user){
-        // user is authenticated, return protected data
-        req.currentUser = req.session.user;
-
-    }  
-
-    next();
+export const getCurrentUser = (req, res) => {
+     jwt.verify(req.token, 'my_secret_key', (err, data) => {
+        if(err) {
+            res.status(403).json({ error: 'Token inválido' });
+        } else {
+            res.json ({ data });
+        }
+     })
 }

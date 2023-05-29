@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './login.css';
 
 
-export const LogIn = ({ user, setUser }) => {
+export const LogIn = ({ user, setUser, setToken }) => {
     
     const handleClick = e => {
         const { name, value } = e.target;
@@ -37,9 +37,10 @@ export const LogIn = ({ user, setUser }) => {
         fetch('http://localhost:5000/login', requestInit)
         .then ((res) => res.json())
         .then ((res) => {
-            if (res.user) {
-                console.log('Login successful!'); // do something here to handle successful login
-                navigate('/', { state: { user: res.user } });
+            if (res.token) {
+                setToken(res.token);
+                navigate('/');
+                
                 //reload state
                 setUser({
                     name: '',

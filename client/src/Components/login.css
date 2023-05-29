@@ -13,13 +13,15 @@
 
 
 input {
-    margin-right: 300px;
+   display: flex;
+
 }
 
 button {
     
-    width: 325px;
+    display: flex;
     margin: auto;
+    
 }
 
 .top {
