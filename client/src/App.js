@@ -54,11 +54,11 @@ function App() {
 
   return (
     <div>
-        <HeaderPs userdata={userdata} setUserdata={setUserdata} />
+        <HeaderPs  userdata={userdata} setUserdata={setUserdata}/>
           <Routes>
               <Route path='/' element={  <Home email={userdata}/>  } />
-              <Route path='/log_in' element={ <LogIn user={user} setUser={setUser} setToken={setToken} />  } />
-              <Route path='/sign_in' element={ <SignIn user={user} setUser={setUser}/>  }/>         
+              <Route path='/log-in' element={ <LogIn user={user} setUser={setUser} setToken={setToken} />  } />
+              <Route path='/sign-in' element={ <SignIn user={user} setUser={setUser}/>  }/>         
           </Routes>
     </div>
   );
