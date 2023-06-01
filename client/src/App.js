@@ -26,6 +26,13 @@ function App() {
   }}});
 
     useEffect(() => {
+      const storedToken = localStorage.getItem('token');
+      if (storedToken) {
+        setToken(storedToken);
+      }
+    }, []);
+
+    useEffect(() => {
 
       const requestInit = {
         method: 'GET',
@@ -49,12 +56,13 @@ function App() {
       // Manejo de errores
       console.error(error);
     });
+    localStorage.setItem('token', token);
     }, [token]);
 
 
   return (
     <div>
-        <HeaderPs  userdata={userdata} setUserdata={setUserdata}/>
+        <HeaderPs  userdata={userdata} setUserdata={setUserdata}  setToken={setToken}/>
           <Routes>
               <Route path='/' element={  <Home email={userdata}/>  } />
               <Route path='/log-in' element={ <LogIn user={user} setUser={setUser} setToken={setToken} />  } />

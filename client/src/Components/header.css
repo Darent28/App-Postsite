@@ -4,4 +4,11 @@
     color: rgb(255, 255, 255);
 }
 
+.nav-link {
+    font-weight: bold;
+}
 
+.custom-ps {
+    margin-left: 1%;
+    margin-right: 1%;
+}
