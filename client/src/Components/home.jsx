@@ -1,38 +1,18 @@
 import React from 'react'
+
 import 'bootstrap/dist/css/bootstrap.css'
 import './home.css'
 
-export const Home = () => {
+export const Home = ({ handleInputClick }) => {
 
-    // const [backendData, setBackendData] = useState([])
-    
-    // useEffect(() => {
-    //     const loginUser = async () => {
-    //       const response = await fetch('http://localhost:5000/login', {
-    //         method: 'POST',
-    //         headers: {
-    //           'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({
-    //           name:  user.name,
-    //           password: user.password,
-    //         }),
-    //       });
-    //       const data = await response.json();
-    //       setBackendData(data.user);
-    //     };
-    //     loginUser();
-    // }, []);
-
-    // const { state } = location;
-    // const { user } = state || {};
 
     return(
-        <div>
-            <h1 align="center">PostSite</h1>
+        <div className='Home'>
+            <h1 className='custom-h1-post' align="center">PostSite</h1>
             <p align="center">My website using React, by David Elizondo Ramos.</p>
             <div> 
-            {/* <p>Welcome, {user.name}!</p> */}
+                 <input className="form-control custom-publish" placeholder='¿Something new today?' onClick={handleInputClick} />
+
             </div>
             <div className="card">
                 <div className="card-body">

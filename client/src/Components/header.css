@@ -6,9 +6,12 @@
 
 .nav-link {
     font-weight: bold;
+    font-size: 20px;
 }
 
 .custom-ps {
     margin-left: 1%;
     margin-right: 1%;
+    font-size: 30px;
 }
+

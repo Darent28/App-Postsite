@@ -65,22 +65,18 @@ export const LogIn = ({ user, setUser, setToken }) => {
             <form onSubmit={ handleSubmit }  align="center" className= "login">
          
                 <div className="form-group">
-                    <label htmlFor="username">
                         Username:
                         <input type="text" className="form-control" name="name" 
                         onChange={handleClick} aria-describedby="name" required/>
-                    </label>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password">
-                        Password: 
+                          Password: 
                         <input type="password" className="form-control" name="password" 
                         onChange={handleClick}
                         aria-describedby="password" required/>
-                    </label>
-                   
+
                 </div>
-                <button type="submit" className="btn btn-secondary" value="Submit">Log in</button>
+                <button type="submit" className="btn btn-secondary form-control" value="Submit">Log in</button>
             </form>
             <p className="account">New to PostSite? <a className="forgot" href="./sign-in">Create account</a>.</p>
         </div> 

@@ -6,7 +6,7 @@ import './header.css';
 
 
 export const HeaderPs = ({userdata, setUserdata, setToken}) => {
-  const { email } = userdata.data.user;
+  const { name } = userdata.data.user;
 
   const handleLogout = () => {
     setUserdata({ data: { user: { 
@@ -31,11 +31,11 @@ export const HeaderPs = ({userdata, setUserdata, setToken}) => {
                   <Link className="nav-link" to="#">Link</Link>
                 </li>
               </ul>
-              <form className="d-flex">
-                    {email ? (
+              <form className="d-flex ">
+                    {name ? (
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                               <li className="nav-item">
-                                <p>Welcome {email}!!</p>
+                                <p className="nav-link active">Welcome {name}</p>
                               </li>
                               <li className="nav-item">
                                     <Link className="nav-link" aria-current="page" onClick={handleLogout} to="./">LogOut</Link>
@@ -46,7 +46,7 @@ export const HeaderPs = ({userdata, setUserdata, setToken}) => {
                         <li className="nav-item">
                           <Link className="nav-link" aria-current="page" to="./sign-in" >SingIn</Link>
                         </li>
-                        <li className="nav-item">
+                        <li className="nav-item container-fluid">
                           <Link className="nav-link" aria-current="page" to="./log-in">LogIn</Link>
                         </li>
                       </ul>

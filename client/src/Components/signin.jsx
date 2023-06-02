@@ -65,7 +65,6 @@ export const SignIn = ({ user, setUser }) => {
             <p align="center">This Is Sign In site</p>
             <form onSubmit={ handleSubmit } align="center" className= "signin">
                 <div className="form-group">
-                    <label htmlFor="username">
                         Username:
                         <input
                         type="text"
@@ -73,22 +72,16 @@ export const SignIn = ({ user, setUser }) => {
                         name="name"
                         onChange={handleClick}
                         required/>
-
-                    </label>
                 </div>
                 <div className="form-group ">
-                    <label htmlFor="email">
                         Email:
                         <input type="email"
                         className="form-control"
                         name="email"
                         onChange={handleClick}
                         required/>
-                    </label>
-
                 </div>
                 <div className="form-group ">
-                    <label htmlFor="password">
                         Password:
                         <input
                         type="password"
@@ -96,11 +89,8 @@ export const SignIn = ({ user, setUser }) => {
                         name="password"
                         onChange={handleClick}
                         required/>
-                    </label>
-
                 </div>
                 <div className="form-group ">
-                    <label htmlFor="password-confirm">
                         Confirm Password:
                         <input
                         type="password"
@@ -108,10 +98,8 @@ export const SignIn = ({ user, setUser }) => {
                         name="password_confirm"
                         onChange={handleClick}
                         required/>
-                    </label>
-
                 </div>
-                <button type="submit" className="btn btn-secondary" value="Submit">Sign in</button>
+                <button type="submit" className="btn btn-secondary form-control" value="Submit">Sign in</button>
             </form>
         </div>
     )
