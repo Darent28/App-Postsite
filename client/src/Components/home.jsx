@@ -121,7 +121,7 @@ export const Home = ({ userdata, token }) => {
                 {postData.map((rows) => (
                     <div className="card" key={rows.id}>
                         <div className="card-body">
-                        <h6 className="card-subtitle mb-2 text-muted">{rows.name}</h6>
+                        <h2 className="card-subtitle mb-2 text-muted">{rows.name}</h2>
                         <h6 className="card-subtitle mb-2 text-muted">{rows.formattedDate}</h6>
                         <br />
                         <h5 className="card-title">{rows.tittle}</h5>
