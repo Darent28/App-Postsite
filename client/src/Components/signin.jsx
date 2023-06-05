@@ -21,8 +21,8 @@ export const SignIn = ({ user, setUser }) => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = () => {
-
+    const handleSubmit = (event) => {
+        event.preventDefault();
         //data validation
         if ( name === '' || email === '' || password === '' || password_confirm === '' ) {
             alert('Todos los campos son obligatorios')
@@ -68,7 +68,7 @@ export const SignIn = ({ user, setUser }) => {
                         Username:
                         <input
                         type="text"
-                        className="form-control"
+                        className="form-control custom-input"
                         name="name"
                         onChange={handleClick}
                         required/>
@@ -76,7 +76,7 @@ export const SignIn = ({ user, setUser }) => {
                 <div className="form-group ">
                         Email:
                         <input type="email"
-                        className="form-control"
+                        className="form-control custom-input"
                         name="email"
                         onChange={handleClick}
                         required/>
@@ -85,7 +85,7 @@ export const SignIn = ({ user, setUser }) => {
                         Password:
                         <input
                         type="password"
-                        className="form-control"
+                        className="form-control custom-input"
                         name="password"
                         onChange={handleClick}
                         required/>
@@ -94,7 +94,7 @@ export const SignIn = ({ user, setUser }) => {
                         Confirm Password:
                         <input
                         type="password"
-                        className="form-control"
+                        className="form-control custom-input"
                         name="password_confirm"
                         onChange={handleClick}
                         required/>

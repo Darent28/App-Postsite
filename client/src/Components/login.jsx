@@ -66,12 +66,12 @@ export const LogIn = ({ user, setUser, setToken }) => {
          
                 <div className="form-group">
                         Username:
-                        <input type="text" className="form-control" name="name" 
+                        <input type="text" className="form-control custom-input" name="name" 
                         onChange={handleClick} aria-describedby="name" required/>
                 </div>
                 <div className="form-group">
                           Password: 
-                        <input type="password" className="form-control" name="password" 
+                        <input type="password" className="form-control custom-input" name="password" 
                         onChange={handleClick}
                         aria-describedby="password" required/>
 

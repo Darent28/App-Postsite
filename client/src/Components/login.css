@@ -47,3 +47,14 @@ button {
     text-decoration: none;  
 }
 
+.custom-input{
+    background-color: #201d29;
+    border-color: #504d58;
+    color: aliceblue;
+ }
+ 
+
+.custom-input:focus{
+    background-color: #19161f;
+    color: aliceblue;
+}
