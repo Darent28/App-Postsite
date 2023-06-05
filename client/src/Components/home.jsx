@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './home.css'
 import './modal.css'
 
-export const Home = ({ userdata }) => {
+export const Home = ({ userdata, token }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleClick = () => {
@@ -76,15 +76,32 @@ export const Home = ({ userdata }) => {
         headers: {'Content-Type': 'application/json'}
         }).then(
             response => response.json()
-        ).then(
-            data => { 
-                setpostData(data)
-                console.log(data)
+        ) .then((data) => {
+            if (Array.isArray(data)) {
+                const formattedData = data.map((row) => {
+                    const date = new Date(row._date);
+                    const formattedDate = date.toLocaleString("es-ES", {
+                      dateStyle: "short",
+                      timeStyle: "short"
+                    });
+                    return {
+                      ...row,
+                      formattedDate
+                    };
+                  });
+                  setpostData(formattedData);
+            } else {
+              console.log('Invalid data format:', data);
             }
-        
-        )
-    
-        }, []) 
+          })
+          .catch((error) => {
+            console.error('Fetch error:', error);
+          });
+          
+      
+      }, []) 
+
+
    
     return(
         <div className='Home'>
@@ -100,23 +117,18 @@ export const Home = ({ userdata }) => {
                 </div>
             )}
 
-            <div className="card">
-                <div className="card-body">
-                    <h5 className="card-title">Username</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">publish date</h6>
-                    <br/>
-                    <p className="card-text">Text publish: Some quick example text to build on the card title and make up the bulk of the card's content.</p>      
-                </div>
-            </div>
-            <div className="card">
-                <div className="card-body">
-                    <h5 className="card-title">Username</h5>
-                    <h6 className="card-subtitle mb-2 text-muted">publish date</h6>
-                    <br/>
-                    <p className="card-text">Text publish: Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                   
-                </div>
-            </div>
+   
+                {postData.map((rows) => (
+                    <div className="card" key={rows.id}>
+                        <div className="card-body">
+                        <h6 className="card-subtitle mb-2 text-muted">{rows.name}</h6>
+                        <h6 className="card-subtitle mb-2 text-muted">{rows.formattedDate}</h6>
+                        <br />
+                        <h5 className="card-title">{rows.tittle}</h5>
+                        <p className="card-text">{rows._text}</p>
+                        </div>
+                    </div>
+                ))}
 
             {isOpen && (
         <div className="modal-overlay">
