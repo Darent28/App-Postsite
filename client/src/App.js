@@ -73,18 +73,3 @@ function App() {
 }
 
 export default App;
-
-
-   
-    // <div>
-    // {
-    // (typeof backendData.user === 'undefined') ? (
-    //   <p>No connection 0_0</p>
-    // ): (
-    //   backendData.user.map((user, i) => (
-    //     <p key={i}>{user}</p>
-        
-
-    //   ))
-    // ) }
-    // </div>

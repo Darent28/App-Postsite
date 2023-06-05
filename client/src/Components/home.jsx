@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import './home.css'
 import './modal.css'
@@ -66,6 +66,25 @@ export const Home = ({ userdata }) => {
         setIsOpen(false);
     }
 
+    const [postData, setpostData] = useState([{}])
+
+
+
+    useEffect ( () => { 
+      fetch('http://localhost:5000/getpost', {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+        }).then(
+            response => response.json()
+        ).then(
+            data => { 
+                setpostData(data)
+                console.log(data)
+            }
+        
+        )
+    
+        }, []) 
    
     return(
         <div className='Home'>
@@ -80,6 +99,7 @@ export const Home = ({ userdata }) => {
                     />
                 </div>
             )}
+
             <div className="card">
                 <div className="card-body">
                     <h5 className="card-title">Username</h5>
