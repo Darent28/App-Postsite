@@ -2,6 +2,10 @@
 
     background: #201d29;
     color: rgb(255, 255, 255);
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    z-index: 9999;
 }
 
 .nav-link {

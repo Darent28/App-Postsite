@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
 import './header.css';
 
 
@@ -18,6 +17,8 @@ export const HeaderPs = ({userdata, setUserdata, setToken}) => {
       localStorage.removeItem('token');
   };
 
+
+
         return (
           <nav className="navbar navbar-expand-lg navbar-dark">
             <Link aria-current="page" to="./" className="nav-link active custom-ps">Ps</Link>
@@ -28,7 +29,7 @@ export const HeaderPs = ({userdata, setUserdata, setToken}) => {
                   <Link className="nav-link active" aria-current="page" to="./">Home</Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="#">Link</Link>
+                  <Link className="nav-link"  to="#">Link</Link>
                 </li>
               </ul>
               <form className="d-flex ">

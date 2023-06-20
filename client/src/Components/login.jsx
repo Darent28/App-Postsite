@@ -41,15 +41,16 @@ export const LogIn = ({ user, setUser, setToken }) => {
                 setToken(res.token);
                 navigate('/');
                 
-                //reload state
+
                 setUser({
                     name: '',
                     password: ''
                 });
+
             } else {
                 console.log('Login failed!'); 
-                // do something here to handle failed login    
-                alert('Usuario no existe')
+
+                alert('User doesnt exists')
          
             }
              

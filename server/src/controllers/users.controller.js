@@ -1,5 +1,6 @@
 import { pool } from '../db.js'
 import jwt from 'jsonwebtoken'
+import bcryptjs from 'bcryptjs';
 
 
 
@@ -21,14 +22,13 @@ export const postUserlogin = async (req, res) => {
 
     const user = rows[0];
     
-    if(password != user.password){
-        return res.status(401).json('Usuario o contraseña incorrectos')
-    }else {
-       
+    if (!user || !(await bcryptjs.compare(password, user.password))){
+        return res.status(401).json('Usuario o contraseña incorrectos');
+    } else {
         const token = jwt.sign({ user }, 'my_secret_key')
         res.status(200).json({ token });
 
-    }  
+    }
 }
 
 
@@ -41,10 +41,10 @@ export const protectedLogin = async (req, res) => {
 export const createUser = async (req, res) => {
 
     const {name, email, password, password_confirm} = req.body
-
+    let passwordHaash = await  bcryptjs.hash(password, 8)
     if(password === password_confirm) { 
-     
-        await pool.query('INSERT INTO tb_user (name, email, password) VALUES (?,?,?)', [name, email, password])
+        
+        await pool.query('INSERT INTO tb_user (name, email, password) VALUES (?,?,?)', [name, email, passwordHaash])
         res.status(200).json('Successfull'); 
   
     } else {

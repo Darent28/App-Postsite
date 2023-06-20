@@ -14,8 +14,60 @@
     width: 25%;
     border: 1px solid;
     background: #201d29;
-    color: rgb(132, 131, 137);
+    color: #848389;
     padding: 20px;
     border-radius: 15px ;
     margin-top: 15%;
+}
+
+
+.custom-dropdown {
+ margin-left: 90%;
+}
+
+.dropdown-menu {
+    position: absolute;
+    list-style: none;
+    text-align: start;
+    background-color: #19161f;
+
+}
+
+.dropdown-menu :hover {
+    background-color: #201d29;
+}
+
+
+.custom-item {
+    color: #848389;
+    font-weight: bold;
+}
+
+.custom-item:hover {
+    color: white;
+    font-weight: bold;
+}
+
+.custom-toggle:hover {
+    background-color: #19161f;
+    border-color: #848389;
+    
+}
+.custom-toggle:active{
+    background-color: #19161f;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .dropdown-menu {
+        width: auto;
+        position: relative;
+        top: 20px;
+        list-style: none;
+        text-align: start;
+    }
+}
+
+.dropdown {
+    display: flex;
 }

@@ -4,6 +4,7 @@ body {
   
 }
 
+
 .card {
     margin: auto;
     line-height: 20px;
@@ -15,12 +16,25 @@ body {
     
 }
 .Home {
-    margin-top: 3%;
+    margin-top: 5%;
+    
 }
 
 .custom-h1-post {
     font-size: 60px;
     font-weight: bold;
+   
+}
+
+.card-header {
+    display: flex;
+}
+.card-header h2{
+    margin-left: 1%;
+}
+.card-header h6{
+    margin-top: 1%;
+    margin-left: 4%;
 }
 
 .custom-publish {

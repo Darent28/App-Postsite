@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from 'react'
+import Dropdown from 'react-bootstrap/Dropdown';
 import 'bootstrap/dist/css/bootstrap.css'
 import './home.css'
 import './modal.css'
 
 export const Home = ({ userdata, token }) => {
     const [isOpen, setIsOpen] = useState(false);
-
+   
     const handleClick = () => {
       setIsOpen(true);
     };
+
+  
   
     const closeModal = () => {
-      setIsOpen(false);
+        setIsOpen(false);
     };
+
 
     const [post, setPost] = useState({
         tittle: '',
@@ -45,8 +49,6 @@ export const Home = ({ userdata, token }) => {
             text,
             id_user 
         }
-
-        
     
         const requestInit = {
             method: 'POST',
@@ -57,26 +59,28 @@ export const Home = ({ userdata, token }) => {
         fetch('http://localhost:5000/post', requestInit)
         .then ((res) => res.json())
         .then ((res) => {
-            console.log(res)
+            console.log(res);
+            window.location.reload(); 
         })
 
-
+        setPost({
+            tittle: '',
+            text: ''
+        })
     
         console.log(fullpost)
         setIsOpen(false);
     }
 
     const [postData, setpostData] = useState([{}])
-
-
-
+    
     useEffect ( () => { 
       fetch('http://localhost:5000/getpost', {
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
         }).then(
             response => response.json()
-        ) .then((data) => {
+        ).then((data) => {
             if (Array.isArray(data)) {
                 const formattedData = data.map((row) => {
                     const date = new Date(row._date);
@@ -88,21 +92,21 @@ export const Home = ({ userdata, token }) => {
                       ...row,
                       formattedDate
                     };
-                  });
-                  setpostData(formattedData);
+                   
+                });
+                
+                setpostData(formattedData);
             } else {
               console.log('Invalid data format:', data);
             }
-          })
-          .catch((error) => {
-            console.error('Fetch error:', error);
-          });
+        }).catch((error) => {
+          console.error('Fetch error:', error);
+        });
           
       
-      }, []) 
+    }, []) 
 
 
-   
     return(
         <div className='Home'>
             <h1 className='custom-h1-post' align="center">PostSite</h1>
@@ -120,41 +124,58 @@ export const Home = ({ userdata, token }) => {
    
                 {postData.map((rows) => (
                     <div className="card" key={rows.id}>
-                        <div className="card-body">
-                        <h2 className="card-subtitle mb-2 text-muted">{rows.name}</h2>
+                        <div className="card-header">
+                        <h2 className="card-subtitle mb-2 text-muted customcard">{rows.name}</h2>
                         <h6 className="card-subtitle mb-2 text-muted">{rows.formattedDate}</h6>
-                        <br />
-                        <h5 className="card-title">{rows.tittle}</h5>
-                        <p className="card-text">{rows._text}</p>
+                        
                         </div>
+                        <div className="card-body">
+                        { rows.name === userdata.data.user.name && (
+                        <Dropdown className='custom-dropdown'>
+                            <Dropdown.Toggle className='custom-toggle' variant="secondary" id="dropdown-basic">
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu>
+                                <Dropdown.Item className='custom-item' href="#/action-1">Edit</Dropdown.Item>
+                                <Dropdown.Item className='custom-item' href="#/action-2">Delete</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        )}     
+                            <br />
+                            <h5 className="card-title">{rows.tittle}</h5>
+                            <p className="card-text">{rows._text}</p>
+                        </div>
+                        
                     </div>
                 ))}
 
-            {isOpen && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <form onSubmit={ handleSubmit }>
-                <div className="form-group">
-                            Tittle: 
-                            <input type="text" className="form-control custom-input" name="tittle" 
-                            onChange={handleText} required/>
-                </div>
-                <div className="form-group">
-                            Text: 
-                            <textarea type="text" className="form-control custom-input" name="text" 
-                            onChange={handleText} required/>
-                </div>
-                <div className="btn-group btn-group-toggle" data-toggle="buttons">
-                    <button type="submit" className="btn btn-secondary">Publish</button>
-                    <button type="submit" className="btn btn-secondary" onClick={closeModal}>Close</button>
-                </div>
-            </form>
+        {isOpen && (
+         <div className="modal-overlay">
+            <div className="modal-content">
+                <form onSubmit={ handleSubmit }>
+                    <div className="form-group">
+                                Tittle: 
+                                <input type="text" className="form-control custom-input" name="tittle" 
+                                onChange={handleText} required/>
+                    </div>
+                    <div className="form-group">
+                                Text: 
+                                <textarea type="text" className="form-control custom-input" name="text" 
+                                onChange={handleText} required/>
+                    </div>
+                    <div className="btn-group btn-group-toggle" data-toggle="buttons">
+                        <button type="submit" className="btn btn-secondary">Publish</button>
+                        <button type="submit" className="btn btn-secondary" onClick={closeModal}>Close</button>
+                    </div>
+                </form>
+            </div>
           </div>
-        </div>
-      )}
+        )}
         </div> 
     )
 }
+
+
 
 export default Home
 

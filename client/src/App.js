@@ -64,7 +64,7 @@ function App() {
     <div>
         <HeaderPs  userdata={userdata} setUserdata={setUserdata}  setToken={setToken}/>
           <Routes>
-              <Route path='/' element={  <Home userdata={ userdata } token={ token } />  } />
+              <Route path='/' element={  <Home userdata={ userdata } />  } />
               <Route path='/log-in' element={ <LogIn user={user} setUser={setUser} setToken={setToken} />  } />
               <Route path='/sign-in' element={ <SignIn user={user} setUser={setUser}/>  }/>         
           </Routes>
