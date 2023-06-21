@@ -106,6 +106,23 @@ export const Home = ({ userdata }) => {
       
     }, []) 
 
+    const handleDelete = (id) => {
+        fetch(`http://localhost:5000/deletePost/${id}`, {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            
+          console.log('Element deleted:', data);
+          window.location.reload();
+        })
+        .catch((error) => {
+          console.error('Error deleting element:', error);
+        });
+    };
 
     return(
         <div className='Home'>
@@ -130,14 +147,14 @@ export const Home = ({ userdata }) => {
                         
                         </div>
                         <div className="card-body">
-                        { rows.name === userdata.data.user.name && (
+                        { rows.id_user === userdata.data.user.id && (
                         <Dropdown className='custom-dropdown'>
                             <Dropdown.Toggle className='custom-toggle' variant="secondary"  id="dropdown-button-drop-end">
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
                                 <Dropdown.Item className='custom-item' href="./publish/edit">Edit</Dropdown.Item>
-                                <Dropdown.Item className='custom-item' href="#/action-2">Delete</Dropdown.Item>
+                                <Dropdown.Item className='custom-item' onClick={() => handleDelete(rows.id_post)}>Delete</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                         )}     

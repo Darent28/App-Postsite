@@ -11,7 +11,7 @@ export const postPost = async (req, res) => {
 export const getPost = async (req, res) => { 
 
     
-    const [rows] = await pool.query('Select p.tittle, p._text, s.name, p._date from tb_post p inner join tb_user s on p.id_user = s.id') 
+    const [rows] = await pool.query('Select p.id_post, p.tittle, p._text, s.name, p._date, p.id_user from tb_post p inner join tb_user s on p.id_user = s.id') 
 
     if (rows.length >= 0) {
 
@@ -22,4 +22,18 @@ export const getPost = async (req, res) => {
         return res.status(401).json('undefined');
 
     }
+}
+
+export const deletePost = async (req, res) => { 
+
+    const { id } = req.params;
+
+    try {
+      await pool.query('DELETE FROM tb_post WHERE id_post = ?', [id]);
+      res.status(200).json('success');
+    } catch (error) {
+      console.error('Error deleting post:', error);
+      res.status(500).json('error');
+    } 
+
 }
