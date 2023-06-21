@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './home.css'
 import './modal.css'
 
-export const Home = ({ userdata, token }) => {
+export const Home = ({ userdata }) => {
     const [isOpen, setIsOpen] = useState(false);
    
     const handleClick = () => {
@@ -132,11 +132,11 @@ export const Home = ({ userdata, token }) => {
                         <div className="card-body">
                         { rows.name === userdata.data.user.name && (
                         <Dropdown className='custom-dropdown'>
-                            <Dropdown.Toggle className='custom-toggle' variant="secondary" id="dropdown-basic">
+                            <Dropdown.Toggle className='custom-toggle' variant="secondary"  id="dropdown-button-drop-end">
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                <Dropdown.Item className='custom-item' href="#/action-1">Edit</Dropdown.Item>
+                                <Dropdown.Item className='custom-item' href="./publish/edit">Edit</Dropdown.Item>
                                 <Dropdown.Item className='custom-item' href="#/action-2">Delete</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>

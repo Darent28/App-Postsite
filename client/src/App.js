@@ -2,6 +2,8 @@ import HeaderPs from './Components/header';
 import Home from './Components/home';
 import LogIn from './Components/login';
 import SignIn from './Components/signin';
+import Edit from './Components/publish-edit';
+import Footer from './Components/footer';
 import React, { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
@@ -66,8 +68,10 @@ function App() {
           <Routes>
               <Route path='/' element={  <Home userdata={ userdata } />  } />
               <Route path='/log-in' element={ <LogIn user={user} setUser={setUser} setToken={setToken} />  } />
-              <Route path='/sign-in' element={ <SignIn user={user} setUser={setUser}/>  }/>         
+              <Route path='/sign-in' element={ <SignIn user={user} setUser={setUser}/>  }/> 
+              <Route path='/publish/edit' element={ <Edit />  }/>         
           </Routes>
+          <Footer/>
     </div>
   );
 }

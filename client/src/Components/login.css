@@ -7,7 +7,6 @@
     color: rgb(132, 131, 137);
     padding: 20px;
     border-radius: 15px ;
-    
 }
 
 
@@ -27,6 +26,7 @@ button {
 
 .top {
     margin-top: 100px;
+    height: 718px;
     
 }
 
