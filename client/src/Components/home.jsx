@@ -127,7 +127,7 @@ export const Home = ({ userdata }) => {
     return(
         <div className='Home'>
             <h1 className='custom-h1-post' align="center">PostSite</h1>
-            <p align="center">My website using React, by David Elizondo Ramos.</p>
+            <p align="center">My website using React and Nodejs, by David Elizondo Ramos.</p>
             {userdata.data.user.id && (
                 <div>
                     <input

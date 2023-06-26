@@ -39,14 +39,28 @@ export const deletePost = async (req, res) => {
 }
 
 export const editPost = async (req, res) => {
-    const { id } = req.params;
-    const { tittle, text } = req.body;
+  const { id } = req.params;
+  const { title, text } = req.body;
 
-    try {
-        await pool.query('UPDATE tb_post SET tittle = ?, _text = ? WHERE id_post = ?', [tittle, text, id]);
-        res.status(200).json('success');
-      } catch (error) {
-        console.error('Error deleting post:', error);
-        res.status(500).json('error');
-      } 
+  try {
+    await pool.query('UPDATE tb_post SET tittle = ?, _text = ? WHERE id_post = ?', [title, text, id]);
+    res.status(200).json('success');
+  } catch (error) {
+    console.error('Error deleting post:', error);
+    res.status(500).json('error');
+  } 
+}
+
+export const geteditPost = async (req, res) => {
+  const { id } = req.params;
+
+  try {
+   const [rows] = await pool.query('SELECT tittle, _text FROM tb_post WHERE id_post = ?', [id]);
+    const post = rows[0]
+    console.log(post)
+    res.status(200).json(post);
+  } catch (error) {
+    console.error('Error deleting post:', error);
+    res.status(500).json('error');
+  } 
 }
