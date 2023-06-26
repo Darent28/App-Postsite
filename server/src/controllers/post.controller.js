@@ -57,7 +57,6 @@ export const geteditPost = async (req, res) => {
   try {
    const [rows] = await pool.query('SELECT tittle, _text FROM tb_post WHERE id_post = ?', [id]);
     const post = rows[0]
-    console.log(post)
     res.status(200).json(post);
   } catch (error) {
     console.error('Error deleting post:', error);
