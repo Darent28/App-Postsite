@@ -69,7 +69,7 @@ function App() {
               <Route path='/' element={  <Home userdata={ userdata } />  } />
               <Route path='/log-in' element={ <LogIn user={user} setUser={setUser} setToken={setToken} />  } />
               <Route path='/sign-in' element={ <SignIn user={user} setUser={setUser}/>  }/> 
-              <Route path='/publish/edit' element={ <Edit />  }/>         
+              <Route path='/publish/edit/:id_post' element={ <Edit />  }/>         
           </Routes>
           <Footer/>
     </div>

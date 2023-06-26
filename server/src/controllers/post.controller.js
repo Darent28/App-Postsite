@@ -37,3 +37,16 @@ export const deletePost = async (req, res) => {
     } 
 
 }
+
+export const editPost = async (req, res) => {
+    const { id } = req.params;
+    const { tittle, text } = req.body;
+
+    try {
+        await pool.query('UPDATE tb_post SET tittle = ?, _text = ? WHERE id_post = ?', [tittle, text, id]);
+        res.status(200).json('success');
+      } catch (error) {
+        console.error('Error deleting post:', error);
+        res.status(500).json('error');
+      } 
+}

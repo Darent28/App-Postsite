@@ -45,8 +45,9 @@
 
 .custom-item:hover {
     color: white;
-    font-weight: bold;
+
 }
+
 
 .custom-toggle:hover {
     background-color: #19161f;

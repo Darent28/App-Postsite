@@ -153,7 +153,7 @@ export const Home = ({ userdata }) => {
                             </Dropdown.Toggle>
 
                             <Dropdown.Menu>
-                                <Dropdown.Item className='custom-item' href="./publish/edit">Edit</Dropdown.Item>
+                                <Dropdown.Item className='custom-item' href={`./publish/edit/${rows.id_post}`}>Edit</Dropdown.Item>
                                 <Dropdown.Item className='custom-item' onClick={() => handleDelete(rows.id_post)}>Delete</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
