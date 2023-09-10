@@ -53,7 +53,7 @@ export const HeaderPs = ({userdata, setUserdata, setToken}) => {
                                 
                                   </li>
                          <li className="nav-item container-fluid">    
-                          <Link className="nav-link" aria-current="page" to="./log-in">LogIn</Link>
+                          <Link className="nav-link" aria-current="page" to="./edit-user">LogIn</Link>
                         </li> 
                       </ul>
                       )}
