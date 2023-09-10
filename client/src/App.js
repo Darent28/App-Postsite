@@ -5,6 +5,7 @@ import SignIn from './Components/signin';
 import Edit from './Components/publish-edit';
 import Footer from './Components/footer';
 import Edituser from './Components/edituser';
+import Userprofile from './Components/userprofile';
 import React, { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
@@ -68,6 +69,8 @@ function App() {
               <Route path='/log-in' element={ <LogIn user={user} setUser={setUser} setToken={setToken} />  } />
               <Route path='/sign-in' element={ <SignIn user={user} setUser={setUser}/>  }/> 
               <Route path='/edit-user' element={ <Edituser user={user} setUser={setUser}/>  }/> 
+              <Route path='/user-profile' element={ <Userprofile user={user} setUser={setUser}/>  }/> 
+              
               
               
               <Route path='/publish/edit/:id_post' element={ <Edit />  }/>         
