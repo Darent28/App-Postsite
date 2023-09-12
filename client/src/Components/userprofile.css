@@ -92,7 +92,7 @@
      border-radius:1%;
      width: 1250px;
      height: 460px;
-    /*  background-color: rgb(255, 255, 255);  */
+     background-color: #16161f; 
 }
 
 .fotow{
@@ -181,7 +181,13 @@
     box-shadow: 0 12px 16px 0 rgba(79, 82, 82, 0.281),0 17px 50px 0 rgba(105, 100, 100, 0.19);
   }
 
-
+  .linea {
+    border-top: 1px solid rgb(253, 252, 252);
+    height: 2px;
+    max-width: 1200px;
+    padding: 0;
+    margin: 20px auto 0 auto;
+  }
 
   
 

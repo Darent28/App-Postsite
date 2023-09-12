@@ -72,34 +72,23 @@ export const Userprofile = ({ user, getUser }) =>{
 
 
         </div>
-        
+        <div class="linea"></div>
         <br></br> 
          <div class="debajo">
-         <div className='Home'>
-            <h1 className='custom-h1-post' align="center">PostSite</h1>
-            <p align="center">My website using React and Nodejs.</p>
-          
-               
-                    
-                        <div className="card-header">
-                            
-                     
-                        </div>
-                        <div className="card-body">
-                            <br />
-                            
-                            <br/>
-                            <h4> Comments </h4>
-                            <hr/>
-                         
-                            
-                        </div>
-                        
-                   
-                
+       {/*      <div class="list-group">
+         <div class="d-flex position-relative ">
+           
+  <img src="logo512.png" class="flex-shrink-0 me-3" height="80px" width="80px"></img>
+  
+  <div>
+    <h5 class="mt-0">Friend 1</h5>
+     <a href="#" class="stretched-link"></a>
+  </div>
+</div>
 
-     
-        </div> 
+
+      
+</div> */}
             
         </div> </>
 
