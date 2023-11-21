@@ -62,6 +62,17 @@ export const updateReaction = async (req, res) => {
         console.error('Error deleting post:', error);
         res.status(500).json('error');
     } 
-
+    
 }
 
+export const getReaction = async (req, res) => {
+    const { id_reaction } = req.params;
+
+   const [user] = await prisma.reaction.findMany({
+        where:{ 
+            id_reaction: id_reaction
+        },
+    })
+    
+    res.status(200).json(user);
+}
